@@ -1,0 +1,2 @@
+# BigotBlocker
+Chrome Addon
