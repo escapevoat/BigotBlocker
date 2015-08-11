@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "BigotBlocker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This extension allows you to block undesireables on voat.co.",
   "icons": { "128": "icon-512.png" },
   "background": {
