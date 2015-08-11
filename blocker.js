@@ -26,18 +26,36 @@ jQuery(function($) {
         }
     }
 
-    // Add block user button to comment
+    // Add unblock button to blocked users
+    $('.entry').each(function() {
+    	var user = $(this).find('.userinfo').text();
+    	var bb_user = localStorage.getItem('bb_'+user);
+    	if (bb_user != null) {
+    		$(this).find('.flat-list').append('<li><div style="cursor:pointer;" id="unblock" data-username="bb_' + user + '">unblock</div></li>');
+    	}
+    });
+
+    // Add block button to comments
     $('.entry').each(function() {
         var user = $(this).find('.userinfo').text();
-        $(this).find('.flat-list').append('<li><div style="cursor:pointer;" id="block" data-username="bb_' + user + '">block</div></li>');
+        if ( $(this).find('#unblock').length == 0 ) {
+        	$(this).find('.flat-list').append('<li><div style="cursor:pointer;" id="block" data-username="bb_' + user + '">block</div></li>');
+        }
     });
 
     // Add user to block list
     $('.flat-list li').on('click','#block',function() {
         var user = $(this).data('username');
-        console.log(user);
         localStorage.setItem(user,user);
-        console.log('Added '+ user +' to block list!');
+        console.log('Added '+ user.split('bb_')[1] +' to block list!');
+        window.location.reload();
+    });
+
+    // Remove user from block list
+    $('.flat-list li').on('click','#unblock',function() {
+        var user = $(this).data('username');
+        localStorage.removeItem(user);
+        console.log('Removed '+ user.split('bb_')[1] +' from block list!');
         window.location.reload();
     });
 

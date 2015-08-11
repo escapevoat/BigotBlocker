@@ -9,10 +9,6 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "browser_action": {
-    "default_title": "",
-    "default_icon": "icon.png"
-  },
   "content_scripts": [
     {
       "matches": ["*://voat.co/*"],
@@ -22,6 +18,7 @@
   ],
   "permissions": [
     "tabs",
+    "storage",
     "activeTab",
     "https://ajax.googleapis.com/"
   ]
