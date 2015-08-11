@@ -1,5 +1,5 @@
 /**
-*  BigotBlock - A browser extension for blocking assholes on voat since the block function isn't implemented yet.
+*  BigotBlock - A browser extension for blocking annoying people on voat since the block function isn't implemented yet.
 * 
 *  blocker.js - contains the functionality of the plugin.
 *
