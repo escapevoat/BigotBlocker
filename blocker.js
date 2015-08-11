@@ -20,8 +20,8 @@ jQuery(function($) {
     			$('.entry').each(function() {
     				var author = $(this).find('.userinfo').text();
     				if ( author == user ) {
-    					$(this).find('.usertext-body').html('<em style="font-style:italic;color:#666;">Comment Hidden - Blocked User</em>');
-    					$(this).find('.title').html('<em style="font-style:italic;color:#666;">Post Hidden - Blocked User</em>');
+    					$(this).find('.usertext-body').html('<em style="font-style:italic;">Comment Hidden - Blocked User</em>');
+    					$(this).find('.title').html('<em style="font-style:italic;">Post Hidden - Blocked User</em>');
     				}
     			});
     		}
@@ -36,7 +36,7 @@ jQuery(function($) {
     	var user = $(this).find('.userinfo').text();
     	var bb_user = localStorage.getItem('bb_'+user);
     	if (bb_user != null) {
-    		$(this).find('.flat-list').append('<li><div style="cursor:pointer;" class="bb_unblock" data-username="bb_' + user + '">unblock</div></li>');
+    		$(this).find('.flat-list').append('<li><a style="cursor:pointer;" class="bb_unblock" data-username="bb_' + user + '">unblock</a></li>');
     	}
     });
 
@@ -44,7 +44,7 @@ jQuery(function($) {
     $('.entry').each(function() {
     	var user = $(this).find('.userinfo').text();
     	if ( $(this).find('.bb_unblock').length == 0 ) {
-    		$(this).find('.flat-list').append('<li><div style="cursor:pointer;" class="bb_block" data-username="bb_' + user + '">block</div></li>');
+    		$(this).find('.flat-list').append('<li><a style="cursor:pointer;" class="bb_block" data-username="bb_' + user + '">block</a></li>');
     	}
     });
 
